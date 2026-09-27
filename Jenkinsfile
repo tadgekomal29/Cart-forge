@@ -26,5 +26,13 @@ pipeline {
                 sh 'npm run build'
             }
         }
+        stage('s3 bucket deploy') {
+            steps {
+                echo 'Hello World'
+                withCredentials([aws(accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'aws-cred', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')]) {
+    // some block
+}
+            }
+     
     }
 }
